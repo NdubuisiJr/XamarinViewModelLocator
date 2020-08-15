@@ -19,4 +19,4 @@ jobs:
     - name: Install dependencies
       run: dotnet restore /src/XamarinViewModelLocator.csproj
     - name: Build
-      run: dotnet build /src/XamarinViewModelLocator.csproj --configuration Release --no-restore
+      run: dotnet build /src/XamarinViewModelLocator.csproj 
