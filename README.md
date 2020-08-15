@@ -5,7 +5,7 @@
  
  [![GitHub license](https://img.shields.io/github/license/NdubuisiJr/XamarinViewModelLocator.svg?style=flat-square)](https://github.com/NdubuisiJr/XamarinViewModelLocator/blob/master/LICENSE)
  [![Actions Status](https://github.com/NdubuisiJr/XamarinViewModelLocator/workflows/Build/badge.svg?style=flat-square)](https://github.com/NdubuisiJr/XamarinViewModelLocator/actions)
- [![GitHub last commit](https://img.shields.io/github/last-commit/NdubuisiJr/XamarinViewModelLocator.svg?style=flat-square)](https://github.com/NdubuisiJr/XamarinViewModelLocator/issues)
+ [![GitHub last commit](https://img.shields.io/github/last-commit/NdubuisiJr/XamarinViewModelLocator.svg?style=flat-square)](https://github.com/NdubuisiJr/XamarinViewModelLocator)
 
 <sub>Built with ❤︎ by Ndubuisi Jr Chukuigwe</sub>
 </div><br>
