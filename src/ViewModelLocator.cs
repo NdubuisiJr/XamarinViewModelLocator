@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Globalization;
+using System.Linq;
 using System.Reflection;
 using Xamarin.Forms;
 using XamarinViewModelLocator.Config;
@@ -29,11 +30,31 @@ namespace XamarinViewModelLocator {
                 viewModel = Activator.CreateInstance(viewModelType);
             }
             else {
-                var resolveMethod = Config.ContainerType.GetMethod(Config.ResolveMethodName);
-                viewModel = resolveMethod.Invoke(Config.Container, new object[] { viewAndModelType });
+                //Config.ContainerType.GetMethod(,)
+                var resolveMethods = from type in Config.ContainerType.Assembly.GetTypes()
+                                     where !type.IsGenericType && !type.IsNested
+                                     from method in type.GetMethods(BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic)
+                                     select method;
+                var resolveMethod = resolveMethods.FirstOrDefault(x => x.Name == Config.ResolveMethodName
+                );
+                if(resolveMethod.IsGenericMethod)
+                    viewModel = resolveMethod.MakeGenericMethod(viewModelType).Invoke(Config.Container,new object[] { });
+                else
+                    viewModel = resolveMethod.Invoke(Config.Container, new object[] { viewModelType });
             }
             view.BindingContext = viewModel;
         }
+
+        //public static object j(Assembly assembly) {
+        //    var query = from type in assembly.GetTypes()
+        //                where !type.IsGenericType && !type.IsNested
+        //                from method in type.GetMethods(BindingFlags.Static
+        //                    | BindingFlags.Public | BindingFlags.NonPublic)
+        //                where method.IsDefined(typeof(System.Runtime.CompilerServices.ExtensionAttribute), false)
+        //                where method.GetParameters()[0].ParameterType == extendedType
+        //                select method;
+        //    return query;
+        //}
 
         public static bool GetAutoWireViewModel(BindableObject bindable) {
             return (bool)bindable.GetValue(AutoWireViewModelProperty);

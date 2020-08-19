@@ -1,19 +1,19 @@
-﻿using System;
+﻿using TestApp.Dependency;
 using Xamarin.Forms;
 
-namespace TestApp.ViewModels {
+namespace TestApp.VM {
     public class MainPageViewModel : BindableObject {
 
-        public MainPageViewModel() {
+        public MainPageViewModel(IData data) {
             CounterCommand = new Command(CounterAction);
-            //_dependency = dependency;
+            _counter = data.StartCount;
         }
 
         private void CounterAction(object obj) {
-            Counter++;
+            Counter+=2;
         }
 
-        private int _counter;
+        private int _counter = 34;
         public int Counter {
             get => _counter;
             set {
@@ -23,7 +23,5 @@ namespace TestApp.ViewModels {
         }
 
         public Command CounterCommand { get; set; }
-
-        private object _dependency;
     }
 }
