@@ -4,13 +4,16 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="TestApp.MainPage">
+             xmlns:viewModelLocator="clr-namespace:XamarinViewModelLocator;assembly=XamarinViewModelLocator"
+             viewModelLocator:ViewModelLocator.AutoWireViewModel="True"
+             x:Class="TestApp.Views.MainPage">
 
     <StackLayout>
         <!-- Place new controls here -->
-        <Label Text="Welcome to Xamarin.Forms!" 
+        <Label Text="{Binding Counter}" 
            HorizontalOptions="Center"
            VerticalOptions="CenterAndExpand" />
+        <Button Command="{Binding CounterCommand}" Text="Count"/>
     </StackLayout>
 
 </ContentPage>
