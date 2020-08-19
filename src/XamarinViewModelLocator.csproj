@@ -2,8 +2,26 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+    <Version>1.0.3</Version>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <PackageId>Xam.ViewModelLocator</PackageId>
+    <Authors>Ndubuisi Jr Chukuigwe</Authors>
+    <Description>A super light-weight view model locator for Xamarin.Forms applications</Description>
+    <Copyright>Copyright (c) 2020 Ndubuisi Jr Chukuigwe</Copyright>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/NdubuisiJr/XamarinViewModelLocator</PackageProjectUrl>
+    <PackageIcon>icon.png</PackageIcon>
+    <RepositoryUrl>https://github.com/NdubuisiJr/XamarinViewModelLocator</RepositoryUrl>
+    <PackageTags>ViewModel, ViewModelLocator, MVVM</PackageTags>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Xamarin.Forms" Version="4.5.0.725" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 </Project>
