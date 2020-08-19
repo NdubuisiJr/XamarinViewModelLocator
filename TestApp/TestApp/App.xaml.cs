@@ -12,12 +12,12 @@ namespace TestApp {
             InitializeComponent();
 
             // Set up container/Register dependencies
-            ConfigureContainer();
+            ConfigureAutoFacContainer();
 
             MainPage = new MainPage();
         }
 
-        private void ConfigureContainer() {
+        private void ConfigureAutoFacContainer() {
             var containerBuilder = new ContainerBuilder();
 
             // Register dependencies:
@@ -30,7 +30,7 @@ namespace TestApp {
 
             // Build Container
             _container = containerBuilder.Build();
-
+            
             // Give View model Locator a refrence to the container
             ViewModelLocator.Config = new Configuration()
                             .SetContainer(_container)
